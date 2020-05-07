@@ -53,25 +53,25 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func fetchChatData(completion: @escaping (Result<[ChatContentText],chatDataError>) ->Void ) {
-                 let dataTask = URLSession.shared.dataTask(with: URL (string:"http://dev.rapptrlabs.com/Tests/scripts/chat_log.php")!) {Data,_,_ in
-                     guard let ChatApiResponse = Data else {
-                         completion(.failure(.noData))
-                         return
-                     }
-                     print(Data!)
-                     do {
-                         let chatparser = JSONDecoder ()
-                        let parseChat = try chatparser.decode(ChatData.self, from:  ChatApiResponse)
-                        let parsedChat = parseChat.data
-                         completion(.success(parsedChat))
-                         print (parsedChat)
-                     }catch{
-                         completion(.failure(.badData))
-                     }
-                 }
-                 dataTask.resume()
+        let dataTask = URLSession.shared.dataTask(with: URL (string:"http://dev.rapptrlabs.com/Tests/scripts/chat_log.php")!) {Data,_,_ in
+            guard let ChatApiResponse = Data else {
+                completion(.failure(.noData))
+                return
+            }
+            print(Data!)
+            do {
+                let chatparser = JSONDecoder ()
+                let parseChat = try chatparser.decode(ChatData.self, from:  ChatApiResponse)
+                let parsedChat = parseChat.data
+                completion(.success(parsedChat))
+                print (parsedChat)
+            }catch{
+                completion(.failure(.badData))
+            }
+        }
+        dataTask.resume()
         
-             }
+    }
     
     private func configureTable(tableView: UITableView) {
         chatTable?.delegate = self
@@ -103,7 +103,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.chatextlabel.text = cellData.message
         cell.UserImg.load(url: URL(string: cellData.avatar_url)!)
         cell.UserImg.drawRoundImage()
-       
+        
         
         
         return cell

@@ -31,7 +31,7 @@ class CustomLoginButton: UIButton{
     }
     
     
-     func LoginButton() {
+    func LoginButton() {
         // Implement button changes
         layer.cornerRadius = 28
         layer.opacity = 0.8

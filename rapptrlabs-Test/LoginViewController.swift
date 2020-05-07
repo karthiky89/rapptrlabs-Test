@@ -52,7 +52,7 @@ class LoginViewController: UIViewController {
             return PswdError
         }else if UsernameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) != nil && PasswordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) != nil{
             
-//            self.loginwith(email: String, password: <#T##String#>, completion: [weak self] result in)
+        // self.loginwith(email: String, password: String, completion: [weak self] result in)
 //            
         }
         return nil
@@ -64,28 +64,7 @@ class LoginViewController: UIViewController {
     
     }
     
-//    func loginwith(email:String, password:String,completionHandler: { data, response, error in
-//        let dataTask = URLSession.shared.dataTask(with: URL (string:"http://dev.rapptrlabs.com/Tests/scripts/login.php?email=\(String(describing: email))&password=\(String(describing: password))")!) {data, response, error in
-//
-//
-//            guard let ApiResponse = data, error == nil else {
-//                Alerts.badrequest(on :self)
-//                return
-//            }
-//
-//            var result : loginData?
-//            do {
-//                result =  try JSONDecoder().decode(loginData.self, from: data)
-//            }catch{
-//                print("failed to convert \(error.localizedDescription)")
-//            }
-//
-//           guard let json = result else {
-//                return
-//            }
-//        }
-//        dataTask.resume()
-//    }
+
     
     
     func loginwith(email:String, password:String,completion: @escaping (Result<loginData,LoginDataError>) ->Void ) {
@@ -111,9 +90,7 @@ class LoginViewController: UIViewController {
         dataTask.resume()
         
     }
-    
-    
-    
+
     
     
 }

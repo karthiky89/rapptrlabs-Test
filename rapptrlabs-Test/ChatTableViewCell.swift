@@ -85,7 +85,7 @@ extension UIImageView {
 
 
 extension UIColor {
-
+    
     public func UIColorFromRGB(rgbValue: UInt) -> UIColor {
         return UIColor(
             red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,

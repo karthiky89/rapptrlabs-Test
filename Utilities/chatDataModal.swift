@@ -20,15 +20,15 @@ struct ChatContentText:Codable {
     var message : String
     var avatar_url : String
     var name : String
-   //  var user_id : String
+    //  var user_id : String
     
 }
 
 
 
-    
-    
-    
+
+
+
 
 
 

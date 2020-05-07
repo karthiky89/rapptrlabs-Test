@@ -12,7 +12,7 @@ let cornerRadius : CGFloat = 10.0
 let ChatBubbleCornerRadius : CGFloat = 8.0
 
 class AnimationViewController: UIViewController  {
-   
+    
     // MARK: - Declatarions
     var fadeChceck = ViewController()
     
@@ -61,22 +61,22 @@ class AnimationViewController: UIViewController  {
         shadowContainerView.layer.shadowColor = UIColor.clear.cgColor
     }
     
-      // MARK: - IBActions
+    // MARK: - IBActions
     
     //Implement action for logo movement
     @IBAction func fadeAndDrag(_ sender: UIPanGestureRecognizer) {
         self.fadeButton.isHidden  = true
         
         if traceTracker.state == .began {
-
-             SetUpShadow()
+            
+            SetUpShadow()
             
         } else if traceTracker.state == .changed {
             
             SetUpShadow()
             
             let navi  = traceTracker.translation(in: self.logoView)
-           
+            
             shadowContainerView.transform = CGAffineTransform(translationX: navi.x, y: navi.y)
             
         } else if traceTracker.state == .ended {
