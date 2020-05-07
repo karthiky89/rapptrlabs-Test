@@ -103,6 +103,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.chatextlabel.text = cellData.message
         cell.UserImg.load(url: URL(string: cellData.avatar_url)!)
         cell.UserImg.drawRoundImage()
+        cell.chatextlabel.sizeToFit()
         
         
         

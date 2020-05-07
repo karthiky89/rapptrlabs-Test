@@ -29,8 +29,22 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+      
+        
+        let str = NSAttributedString(string: "Username", attributes: [NSAttributedString.Key.foregroundColor: (UIColorFromRGB(rgbValue: 0x5F6063))])
+         self.UsernameTextField.attributedPlaceholder = str
+        
+        let str1 = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: (UIColorFromRGB(rgbValue: 0x5F6063))])
+        self.PasswordTextField.attributedPlaceholder = str1
+        
+         
+        
+
+        
+        
         // Do any additional setup after loading the view.
     }
+    
     
     //validate  Fields if valid retun  nil else return error(string)
     func validateFields() -> String? {
@@ -58,6 +72,19 @@ class LoginViewController: UIViewController {
         return nil
         
     }
+    
+    
+    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+    
+    
+    
     @IBAction func loginClicked(_ sender: Any) {
         
         self.validateFields()
@@ -94,6 +121,8 @@ class LoginViewController: UIViewController {
     
     
 }
+
+
 
 
 struct loginData: Decodable{
